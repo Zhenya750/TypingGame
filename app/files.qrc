@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/files">
+        <file>sources/enwords</file>
+    </qresource>
+</RCC>
