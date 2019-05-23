@@ -16,6 +16,7 @@ script:
   - ./tests/tests
   
 after_success:
+  - cd external
   - coveralls --root . -E ".*external.*" -E ".*tests.*"
 
 notifications:
