@@ -16,7 +16,7 @@ script:
   - ./tests/tests
   
 after_success:
-  - coveralls --root . -E ".*external.*" -E ".*tests.*"
+  - coveralls
 
 notifications:
 email: false
