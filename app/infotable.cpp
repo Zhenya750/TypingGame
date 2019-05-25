@@ -52,14 +52,16 @@ void InfoTable::clearInfo()
     while(ui->tableWidget_info->rowCount() > 0){
         ui->tableWidget_info->removeRow(0);
     }
+
     QFile::remove(FILEPATH);
 }
 
 void InfoTable::saveInfo()
 {
     QFile progress(FILEPATH);
-    if(!progress.open(QIODevice::ReadWrite | QIODevice::Text))
+    if(!progress.open(QIODevice::ReadWrite | QIODevice::Text)){
         return;
+    }
 
     QTextStream out(&progress);
     for(int i = 0; i < ui->tableWidget_info->rowCount(); i++){
@@ -74,8 +76,9 @@ void InfoTable::saveInfo()
 void InfoTable::loadInfo()
 {
     QFile progress(FILEPATH);
-    if(!progress.open(QIODevice::ReadWrite | QIODevice::Text))
+    if(!progress.open(QIODevice::ReadWrite | QIODevice::Text)){
         return;
+    }
 
     QTextStream in(&progress);
     while(!in.atEnd()){

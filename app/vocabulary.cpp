@@ -11,17 +11,26 @@ Vocabulary::Vocabulary()
 int Vocabulary::load(QString path)
 {
     QFile fin(path);
-    if(!fin.open(QIODevice::ReadOnly | QIODevice::Text))
+    if(!fin.open(QIODevice::ReadOnly | QIODevice::Text)){
         return -1;
+    }
 
     QTextStream in(&fin);
     while(!in.atEnd()){
 
         QString current = in.readLine();
 
-        if(current[0] < 'a' || current[0] > 'z')
+        if(current.size() < 1 || current[0] < 'a' || current[0] > 'z'){
             continue;
+        }
         vocabulary.value(current[0])->append(current);
+    }
+
+    for(int i = 'a'; i <= 'z'; i++){
+
+        if(vocabulary.value(i)->size() == 0){
+            vocabulary.value(i)->append(QString(i));
+        }
     }
 
     return 0;

@@ -1,5 +1,4 @@
 #include "hero.h"
-#include <QDebug>
 
 Hero::Hero()
 {
@@ -85,6 +84,10 @@ void Hero::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 
 void Hero::recharge(Bullet *bullet)
 {
+    if(bullet == nullptr){
+        return;
+    }
+
     bullet->setActive(FREE);
     bullet->moveBullet(0, 0);
     bullet->setTarget(nullptr);

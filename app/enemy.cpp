@@ -111,10 +111,12 @@ void Enemy::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWi
 
     /*//This part demonstrates how ellipse align works
     for(int i = 0; i < 361; i++){
+        painter->setPen(Qt::white);
         painter->drawPoint(qCeil(singOX * (rec.width()  + size) * qCos(qDegreesToRadians(i + 0.0)) + mcx),
                            qCeil(singOX * (rec.height() + size) * qSin(qDegreesToRadians(i + 0.0)) + mcy));
     }
     */
+
 
     // part of an enemy
     painter->setOpacity(active == ALIVE ? 0.3 : 0.7);
@@ -133,7 +135,7 @@ void Enemy::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWi
             str2[i] = ' ';
         }
 
-        painter->setOpacity(1);
+        painter->setOpacity(active == ALIVE ? 0.7 : 1);
         painter->setPen(QColor(10, 40, 40));
         painter->setFont(QFont("Consolas", size));
         painter->drawText(rec, Qt::AlignCenter, str1);

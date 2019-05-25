@@ -2,7 +2,7 @@
 #include "ui_engine.h"
 
 #define ENEMYAMOUNT 6
-#define HERO_UPDATE 5
+#define HERO_UPDATE 4
 #define BLLT_UPDATE 4
 #define ENMY_UPDATE 35
 
@@ -128,8 +128,9 @@ void Engine::checkEnemies()
 
         for(Enemy *enemy : enemies){
 
-            if(enemy->getStr()[0] == letter[0] &&
-               enemy->getActive() == ALIVE     &&
+            if(hero->getRotateActive() == false &&
+               enemy->getStr()[0] == letter[0]  &&
+               enemy->getActive() == ALIVE      &&
                qAbs(enemy->x) < qAbs(this->width()  >> 1) &&
                qAbs(enemy->y) < qAbs(this->height() >> 1)){
 
@@ -152,6 +153,7 @@ void Engine::checkEnemies()
 void Engine::moveEnemies()
 {
     if(started){
+
         for(Enemy *enemy : enemies){
             if(enemy->getActive() == KILLED){
                 QString str = file->setNewStr(enemy->getStr()[0]);

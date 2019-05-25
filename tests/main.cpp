@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "getrand_t.h"
+#include "hero_recharge_t.h"
 
 
 int main(int argc, char *argv[])
