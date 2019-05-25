@@ -22,15 +22,18 @@ HEADERS += \
     ../app/enemy.h \
     ../app/hero.h \
     ../app/mathfuncs.h \
+    enemy_docmp_t.h \
     getrand_t.h \
+    hero_isheadshot_t.h \
     hero_recharge_t.h
 
 SOURCES += \
     ../app/bullet.cpp \
     ../app/enemy.cpp \
     ../app/hero.cpp \
-    main.cpp \
-    ../app/mathfuncs.cpp
+    ../app/mathfuncs.cpp \
+    main.cpp
+
 
 INCLUDEPATH += ../app
 

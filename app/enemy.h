@@ -17,6 +17,7 @@ public:
     int y;
     qreal k;
     int singOX;
+
 private:
 
     int locked;

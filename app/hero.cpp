@@ -95,12 +95,15 @@ void Hero::recharge(Bullet *bullet)
 
 bool Hero::isHeadShot(Bullet *bullet)
 {
-    if((bullet->x - bullet->getEnemy()->x) * (bullet->x - bullet->getEnemy()->x) +
-       (bullet->y - bullet->getEnemy()->y) * (bullet->y - bullet->getEnemy()->y) <
-                    bullet->getEnemy()->getRadius() * bullet->getEnemy()->getRadius()){
+    if(bullet != nullptr && bullet->getEnemy() != nullptr){
 
-        bullet->getEnemy()->addShot();
-        return true;
+        if((bullet->x - bullet->getEnemy()->x) * (bullet->x - bullet->getEnemy()->x) +
+           (bullet->y - bullet->getEnemy()->y) * (bullet->y - bullet->getEnemy()->y) <
+                        bullet->getEnemy()->getRadius() * bullet->getEnemy()->getRadius()){
+
+            bullet->getEnemy()->addShot();
+            return true;
+        }
     }
 
     return false;

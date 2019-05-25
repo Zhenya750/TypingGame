@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 #include "getrand_t.h"
 #include "hero_recharge_t.h"
+#include "hero_isheadshot_t.h"
+#include "enemy_docmp_t.h"
 
 
 int main(int argc, char *argv[])

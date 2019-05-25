@@ -149,7 +149,7 @@ int Enemy::doCmp(QString &letter)
 {
     if(count < str.size()){
 
-        if(letter == str.at(count)){
+        if(letter[0] == str.at(count)){
             count++;
             return 1;
         }
