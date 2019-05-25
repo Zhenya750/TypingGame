@@ -9,6 +9,7 @@ QT     += core widgets gui
 
 QMAKE_CXXFLAGS += -Wall -Wextra -Werror
 QMAKE_CFLAGS += -Wall -Wextra -Werror
+QMAKE_CXXFLAGS += -std=c++0x
 
 # gcov
 QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage

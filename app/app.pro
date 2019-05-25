@@ -66,6 +66,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 
 QMAKE_CFLAGS += -Wall -Wextra
+QMAKE_CXXFLAGS += -std=c++0x
 
 # gcov
 QMAKE_CFLAGS += -fprofile-arcs -ftest-coverage
