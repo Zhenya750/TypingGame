@@ -16,10 +16,9 @@ public:
     int x;
     int y;
     qreal k;
-    int singOX;
+    int signOX;
 
 private:
-
     int locked;
     int count;
     int shots;

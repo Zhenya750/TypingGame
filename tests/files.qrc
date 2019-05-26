@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/file">
+        <file>sources/enwords_t</file>
+        <file>sources/empty_t</file>
+    </qresource>
+</RCC>

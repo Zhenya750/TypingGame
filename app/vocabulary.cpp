@@ -38,13 +38,16 @@ int Vocabulary::load(QString path)
 
 QString Vocabulary::setNewStr(QChar c)
 {
-    if(c >= 'a' && c <= 'z')
+    if(c >= 'a' && c <= 'z'){
         alphabet.insert(c, 0);
+    }
 
     QString freeLetter;
 
     for(char i = 'a'; i <= 'z'; i++){
-        if(alphabet.value(i) == 0) freeLetter.append(i);
+        if(alphabet.value(i) == 0){
+            freeLetter.append(i);
+        }
     }
 
     int indexLetter = getRand(0, 0, 0, freeLetter.size() - 1);
@@ -61,4 +64,14 @@ void Vocabulary::clearAlpha()
     for(int i = 'a'; i <= 'z'; i++){
         alphabet.insert(i, 0);
     }
+}
+
+QMap<QChar, int> Vocabulary::getAlphabet()
+{
+    return alphabet;
+}
+
+QMap<QChar, QVector<QString> *> Vocabulary::getVocabulary()
+{
+    return vocabulary;
 }

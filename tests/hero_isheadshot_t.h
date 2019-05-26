@@ -39,7 +39,7 @@ TEST(isHeadShot, t2){
 
         e->moveEnemy(sgnX * 20, sgnY * 40);
         e->k = (e->y + 0.0) / e->x;
-        e->singOX = e->x >= 0 ? 1 : -1;
+        e->signOX = e->x >= 0 ? 1 : -1;
 
         b->setTarget(e);
 

@@ -20,6 +20,8 @@ public:
     int load(QString path);
     QString setNewStr(QChar c = '0');
     void clearAlpha();
+    QMap<QChar, int> getAlphabet();
+    QMap<QChar, QVector<QString> *> getVocabulary();
 
 };
 

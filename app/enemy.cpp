@@ -79,7 +79,7 @@ void Enemy::heal(QString str)
     radius    = 15;
     this->str = str;
     k         = (y + 0.0) / x;
-    singOX    = x >= 0 ? 1 : -1;
+    signOX    = x >= 0 ? 1 : -1;
 }
 
 void Enemy::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -100,8 +100,8 @@ void Enemy::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWi
 
     qreal mcx = x;                                                      //middle circle x
     qreal mcy = y;                                                      //middle circle y
-    qreal mrx = singOX * (rec.width()  + size) * qCos(qAtan(k)) + mcx;  //middle rectangle x
-    qreal mry = singOX * (rec.height() + size) * qSin(qAtan(k)) + mcy;  //middle rectangle y
+    qreal mrx = signOX * (rec.width()  + size) * qCos(qAtan(k)) + mcx;  //middle rectangle x
+    qreal mry = signOX * (rec.height() + size) * qSin(qAtan(k)) + mcy;  //middle rectangle y
 
     mrx -= rec.width()  / 2;
     mry -= rec.height() / 2;
@@ -112,8 +112,8 @@ void Enemy::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWi
     /*//This part demonstrates how ellipse align works
     for(int i = 0; i < 361; i++){
         painter->setPen(Qt::white);
-        painter->drawPoint(qCeil(singOX * (rec.width()  + size) * qCos(qDegreesToRadians(i + 0.0)) + mcx),
-                           qCeil(singOX * (rec.height() + size) * qSin(qDegreesToRadians(i + 0.0)) + mcy));
+        painter->drawPoint(qCeil(signOX * (rec.width()  + size) * qCos(qDegreesToRadians(i + 0.0)) + mcx),
+                           qCeil(signOX * (rec.height() + size) * qSin(qDegreesToRadians(i + 0.0)) + mcy));
     }
     */
 

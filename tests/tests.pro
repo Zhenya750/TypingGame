@@ -22,18 +22,26 @@ HEADERS += \
     ../app/enemy.h \
     ../app/hero.h \
     ../app/mathfuncs.h \
+    ../app/vocabulary.h \
     enemy_docmp_t.h \
+    enemy_heal_t.h \
     getrand_t.h \
     hero_isheadshot_t.h \
-    hero_recharge_t.h
+    hero_recharge_t.h \
+    vocabulary_clearalpha_t.h \
+    vocabulary_load_t.h
 
 SOURCES += \
     ../app/bullet.cpp \
     ../app/enemy.cpp \
     ../app/hero.cpp \
     ../app/mathfuncs.cpp \
+    ../app/vocabulary.cpp \
     main.cpp
 
 
 INCLUDEPATH += ../app
+
+RESOURCES += \
+    files.qrc
 

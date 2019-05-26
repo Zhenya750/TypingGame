@@ -137,7 +137,7 @@ void Engine::checkEnemies()
                 enemy->setActive(TARGET);
                 enemy->doCmp(letter);
 
-                qreal angle = qRadiansToDegrees(qAtan(enemy->k)) + enemy->singOX * 90;
+                qreal angle = qRadiansToDegrees(qAtan(enemy->k)) + enemy->signOX * 90;
 
                 hero->setRotateActive(true);
                 hero->setTargetAngle(angle);
@@ -169,6 +169,7 @@ void Engine::moveEnemies()
             if(attacked || resisted){
                 enemy->moveEnemy(enemy->x, enemy->y);
                 enemy->setLocked(enemy->getLocked() - 1);
+
                 if(attacked){
 
                     qreal speed = (successLetters + 0.0) / ((time->elapsed() + 0.0) / 60000);
@@ -219,7 +220,7 @@ void Engine::heroRotate()
         if(hero->getRotateActive()){
 
             qreal target = hero->getTargetAngle();
-            if(int(qAbs(target)) % 2 == 1) target += 1;
+            if(int(target) % 2 != 0) target += 1;
             qreal angle  = hero->getAngle();
             qreal delA   = target - angle;
 
