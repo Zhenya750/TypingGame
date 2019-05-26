@@ -70,7 +70,7 @@ TEST(load, t2){
 
         for(char j = 0; j < arr.value(i)->size(); j++){
 
-            if(arr.value(i)->at(j) != i){
+            if(arr.value(i)->at(j)[0] != i){
                 FAIL();
             }
         }
