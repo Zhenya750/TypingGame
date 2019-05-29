@@ -42,18 +42,15 @@ Input:  	int v[7];
 Expected: res = 0
 
 Test №2
-Goal: test a reaction when left = right = 0
+Goal: test a reaction when minLeft = left = right = 0 (generating a number fron one interval [0...N])
 Type: positive
-Input:  	int v[7];
-
-          v[0] = getRand(0, -1,  0, 10);
-          v[1] = getRand(0,  0, -1, 10);
-          v[2] = getRand(0, -1, -2, 10);
-          v[3] = getRand(0, -2, -1, 10);
-          v[4] = getRand(0,  5,  3, 10);
-          v[5] = getRand(0,  5,  6,  2);
-          v[6] = getRand(10, 5,  6,  2);
-
-          int res = for i in 0..6 sum of v[i];
+Input:  	for j in 0..600 v=getRand(0,0,0,j)
           
-Expected: res = 0
+Expected: v in 0..j
+
+Test №4
+Goal: test a reaction when left = right = 0 (generating a number fron one interval[M..N])
+Type: positive
+Input:  	for i in 0..9 v=getRand(i,0,0,i+5)
+          
+Expected: v in i..(i+5)
