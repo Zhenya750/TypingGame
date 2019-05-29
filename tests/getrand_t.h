@@ -78,4 +78,24 @@ TEST(getRand, t3) {
     }
 }
 
+TEST(getRand, t4) {
+
+    int v = 0;
+
+    for(int i = 0; i < 10; i++){
+        v = getRand(i, 0, 0, i + 5);
+
+        bool n = v < i || v > (i + 5);
+
+        if(n){
+            std::cout << v << std::endl;
+            FAIL();
+        }
+        std::cout << v << ": " << i << "-" << i + 5 <<  std::endl;
+
+    }
+
+    SUCCEED();
+}
+
 #endif // GETRAND_T_H
