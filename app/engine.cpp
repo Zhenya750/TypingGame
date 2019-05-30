@@ -21,7 +21,7 @@ Engine::Engine(QWidget *parent) :
     scene->setSceneRect(-640, -360, 1280, 720);
 
     file  = new Vocabulary();
-    file->load(":files/sources/enwords");
+    file->load("sources/enwords");
 
     hero  = new Hero();
 

@@ -54,8 +54,7 @@ FORMS += \
     saver.ui \
     infotable.ui
 
-RESOURCES += \
-    files.qrc
+RESOURCES +=
 
 INCLUDEPATH +=
 
