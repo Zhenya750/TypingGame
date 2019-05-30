@@ -1,4 +1,5 @@
 Module app
+
 Method void Enemy::doCmp(QString &Letter)
 
 Test №1
@@ -48,9 +49,124 @@ Input:  	for j in 0..600 v=getRand(0,0,0,j)
           
 Expected: v in 0..j
 
+Test №3
+Goal: generating a number fron two intervals: [minLeft..left] or [right..maxRight]
+Type: positive
+Input:  	ml = 1;
+          l  = 2;
+          r  = 3;
+          mr = 4;
+          
+          for j in 1..4 v=getRand(ml*=ml, l*=l, r*=r, mr*=mr)          
+Expected: v in [ml..l] or v in [r..mr]
+
 Test №4
 Goal: test a reaction when left = right = 0 (generating a number fron one interval[M..N])
 Type: positive
 Input:  	for i in 0..9 v=getRand(i,0,0,i+5)
           
 Expected: v in i..(i+5)
+
+
+Method void Enemy::heal(QString str)
+
+Test №1
+Goal: check a position of Enemy (x, y coordinates) and setting new name (QString str)
+Type: positive
+Input:    e = new Enemy("name")
+          str = "newName"
+          e.heal(str)
+Expected: (x in [-600..-450]U[450..600], y in [-500..-350]U[350..500] or
+          x in [-400..400], y in [-500..-350]U[350..500] or
+          x in [-600..-450]U[450..600], y in [-300..300]) and
+          e.getStr = "newName"
+          
+ 
+Method void hero::recharge(Bullet *b)
+
+Test №1
+Goal: check a normal working fo bullets with different position and active
+Type: positive
+Input:    for i in 0..10
+          b.setActive(FREE)
+          b.setTarget(NULL)
+          
+          for i in 11..20
+          b.setActive(READY)
+          b.setTarget(new Enemy())
+          
+          for i in 21..30
+          b.setActive(SHOT)
+          b.setTarget(new Enemy())
+          
+          b.moveBullet(i, i+i)
+          
+          hero.recharge(b);
+Expected: for any b:
+          b.active = FREE
+          b.getEnemy = NULL
+          b.x = 0, b.y = 0
+
+
+Method bool Hero::isHeadShot(Bullet *b)
+
+Test №1
+Goal: test reaction to nullptr Enemy which is connected to b
+Type: negative
+Input:    b->setTarget(nullptr);
+          hero->isHeadShot(b);
+Expected: false
+
+Test №2
+Goal: test a normal working when b is inside Enemy
+Type: positive
+Input:    enemy.moveEnemy(20, 40)
+          for i in 0..20 move b(i, k*i) - moving on a straight line with parameter k
+          
+          enemy.moveEnemy(-20, 40)
+          for i in 0..-20 move b(i, k*i)
+          
+          enemy.moveEnemy(20, -40)
+          for i in 0..20 move b(i, k*i)
+          
+          enemy.moveEnemy(-20, -40)
+          for i in 0..-20 move b(i, k*i)
+          
+          result &= hero->isHeadShot(b);
+Expected: result = true (bullet is inside enemy from any angle of the coordinate area)
+
+
+Method void Vocabulary::clearAlpha()
+
+Test №1
+Goal: test a normal working. Freeing all letters in the alphabet
+Type: positive
+Input:   *v = new Vocabulary();
+          v->load(":file/sources/enwords_t");
+          for i in 0..4 v->setNewStr (occupying a few of letters in the alphabet)
+              
+          v->clearAlpha()
+Expected: for i in 'a'..'z' alphabet[i] = 0
+
+
+Method void Vocabulary::load(filepath)
+
+Test №1
+Goal: test loading of filepath and setting all strings into QMap container
+Type: positive
+Input:    Create v=new Vocabulary
+          v->load(":file/sources/enwords_t") - loading a text file
+          
+          Create two QMap containers to compare: QMap c1 = v->getVocabulary()
+                                                 QMap c2
+          Loading all information from file to c2 container by hands
+Expected: c1 = c2 (loading file and setting elements is successfull)
+
+Test №2
+Goal: test loading of an empty file
+Type: negative
+Input:    Create v=new Vocabulary
+          v->load(":file/sources/empty_t") - loading an empty text file
+          
+          Create QMap container to compare: QMap c1 = v->getVocabulary()
+Expected: for i in 'a'..'z' c1[i] = i (an empty file is filled with alphabet letters)
