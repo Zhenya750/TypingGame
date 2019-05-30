@@ -1,5 +1,5 @@
-#ifndef HERO_ISHEADSHOT_H
-#define HERO_ISHEADSHOT_H
+#ifndef HERO_ISHEADSHOT_T_H
+#define HERO_ISHEADSHOT_T_H
 
 #include <gtest/gtest.h>
 #include "hero.h"
@@ -81,4 +81,4 @@ TEST(isHeadShot, t2){
     SUCCEED();
 }
 
-#endif // HERO_ISHEADSHOT_H
+#endif // HERO_ISHEADSHOT_T_H
