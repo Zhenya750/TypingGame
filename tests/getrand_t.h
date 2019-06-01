@@ -45,6 +45,7 @@ TEST(getRand, t2) {
             }
         }
     }
+    SUCCEED();
 }
 
 TEST(getRand, t3) {
@@ -76,6 +77,7 @@ TEST(getRand, t3) {
         r*=  r;
         mr*= mr;
     }
+    SUCCEED();
 }
 
 TEST(getRand, t4) {
