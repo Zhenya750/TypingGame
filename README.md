@@ -1,5 +1,5 @@
 # TypingGame
-A game to develop your typing skills
+A game to improve your typing skills
 
 Author: Dikov Eugene
 
